@@ -10,15 +10,21 @@
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Tags: html, themplate, Ela Admin
 --------------------------------------------------------- */
-/* 
-
-
-Googel Fonts  */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-/* Googel Fonts End  
-
+/*
+	Googel Fonts Start
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Do+Hyeon&family=Jua&family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&display=swap');
+/*
+	Googel Fonts End
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+/* Main Logo Font */
+h2 {
+	font-family: 'Black Han Sans', sans-serif;
+}
+
 .bg-flat-color-1 {
   background: #00c292; }
 

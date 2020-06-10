@@ -1,0 +1,25 @@
+/* This css file is to over write bootstarp css
+--------------------------------------------------------- /
+* Theme Name: Ela Admin Template
+* Theme URI: http://demos.jeweltheme.com/
+* Author: jewel_theme
+* Author URI: http://themeforest.net/user/jewel_theme/portfolio
+* Description:
+* Version: 1.0.0
+* License: GNU General Public License v2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Tags: html, themplate, Ela Admin
+--------------------------------------------------------- */
+/* 영어 폰트*/
+.form-group {
+	font-family: 'Black Han Sans', sans-serif;
+}
+
+/* 한글 폰트 */
+#doFont {
+	font-family: 'Nanum Gothic Coding', monospace;
+	font-weight: bold;
+	
+}
+
+

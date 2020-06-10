@@ -19,63 +19,29 @@
 	</properties>
 
 	<dependencies>
-	
-	
-	
-	
-
+		<!-- Base -->
 		<dependency>
-
 			<groupId>org.springframework.boot</groupId>
-
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-
 		</dependency>
-
 		<dependency>
-
 			<groupId>org.springframework.boot</groupId>
-
 			<artifactId>spring-boot-starter-web</artifactId>
-
 		</dependency>
-
-
-
 		<dependency>
-
 			<groupId>org.springframework.boot</groupId>
-
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-
 			<scope>provided</scope>
-
 		</dependency>
-
 		<dependency>
-
 			<groupId>org.springframework.boot</groupId>
-
 			<artifactId>spring-boot-starter-test</artifactId>
-
 			<scope>test</scope>
-
 		</dependency>
-
 	
 	
 	
 	
-	
-	
-	
-	
-	
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -94,7 +60,63 @@
 			<scope>provided</scope>
 		</dependency>
 
+
+		<!-- spring security -->
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- DB연동(JPA, mariaDB, lombok) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        <dependency>
+               <groupId>org.projectlombok</groupId>
+               <artifactId>lombok</artifactId>
+               <optional>true</optional>
+        </dependency>
+        
+        <!-- Query console 표시 -->
+        <dependency>
+		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+		    <version>1.16</version>
+		</dependency>
+
+   
+        <dependency>
+               <groupId>javax.xml.bind</groupId>
+               <artifactId>jaxb-api</artifactId>
+        </dependency>
+        
+        <!-- 자동 reload -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-devtools</artifactId>
+	        <optional>true</optional>
+	    </dependency>
+
+		<!-- BootStrap -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+
 	</dependencies>
+
 
 	<build>
 		<plugins>
