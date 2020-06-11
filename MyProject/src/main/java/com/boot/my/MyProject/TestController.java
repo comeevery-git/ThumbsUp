@@ -1,20 +1,22 @@
 package com.boot.my.MyProject;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.boot.my.MyProject.Board.BoardEntity;
+import com.boot.my.MyProject.Board.BoardRepository;
 import com.boot.my.MyProject.Board.BoardService;
 
 @Controller
 public class TestController {
 	@Autowired
-	public BoardService bs;
+	public BoardService boardService;
+	@Autowired
+	public BoardRepository boardRepository;
 	
     @GetMapping("/test")
     public String test(Model model) {
@@ -23,11 +25,27 @@ public class TestController {
 
     @GetMapping("/index")
     public String index(
-    		ModelAndView mv
-    	) {
-    	List<BoardEntity> board_list = bs.findAll();
-    	System.out.println("@@@@@@@@@@ " +board_list);
-    	mv.addObject("board_list",board_list);
+    		Model model) {
+    	
+    	
+    	boardRepository.deleteAll();
+    	boardService.save(new BoardEntity("Ramesh", "Fadatare", "ramesh@gmail.com"));
+    	boardService.save(new BoardEntity("Tom", "Cruise", "tom@gmail.com"));
+    	boardService.save(new BoardEntity("John", "Cena", "john@gmail.com"));
+    	boardService.save(new BoardEntity("tony", "stark", "stark@gmail.com"));
+
+
+        //List <BoardEntity> boards = boardService.findAll();
+        //boards.forEach(employee -> System.out.println(employee.toString()));
+        
+    	Iterable <BoardEntity> boardList = boardRepository.findAll();
+    			
+			for(BoardEntity i : boardList ){
+				System.out.println(i.toString());
+			}
+
+        model.addAttribute("board_list",boardRepository.findAll());
+    	model.addAttribute("test","test");
     	return "index";
     }
 
