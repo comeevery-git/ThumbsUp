@@ -1,8 +1,5 @@
 package com.boot.my.MyProject.Admin;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,21 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "tu_admin")
-public class AdminEntity implements Serializable {
+public class Admin {
  
-	private static final long serialVersionUID = 1L;
+	public Admin() {}
 	
-	public AdminEntity() {}
-	
-	
-	public AdminEntity(Long admin_idx, String adminType, String adminDepart, String adminRank, String adminId,
+	public Admin(Long admin_idx, String adminType, String adminDepart, String adminRank, String adminId,
 			String adminPwd, String adminNm, String adminTel, String adminRrno, String adminGender, Integer adminImg,
-			String adminUseyn, String adminDelyn, Timestamp adminRegdate, Timestamp adminUpddate, String adminGrant) {
+			String adminUseyn, String adminDelyn, String adminRegdate, String adminUpddate, String adminGrant,
+			String adminAccessdate) {
 		super();
 		this.admin_idx = admin_idx;
 		this.adminType = adminType;
@@ -42,6 +35,8 @@ public class AdminEntity implements Serializable {
 		this.adminRegdate = adminRegdate;
 		this.adminUpddate = adminUpddate;
 		this.adminGrant = adminGrant;
+		this.adminAccessdate = adminAccessdate;
+		
 	}
 
 
@@ -99,15 +94,17 @@ public class AdminEntity implements Serializable {
     private String adminDelyn;
 
     // 등록일 
-    @Column(length = 100)
-    private Timestamp adminRegdate;
+    private String adminRegdate;
 
     // 수정일 
-    private Timestamp adminUpddate;
+    private String adminUpddate;
 
     // 권한 
     @Column(length = 100)
     private String adminGrant;
+    
+    // 마지막 접속일 
+    private String adminAccessdate;
 
 	public Long getAdmin_idx() {
 		return admin_idx;
@@ -213,19 +210,19 @@ public class AdminEntity implements Serializable {
 		this.adminDelyn = adminDelyn;
 	}
 
-	public Timestamp getAdminRegdate() {
+	public String getAdminRegdate() {
 		return adminRegdate;
 	}
 
-	public void setAdminRegdate(Timestamp adminRegdate) {
+	public void setAdminRegdate(String adminRegdate) {
 		this.adminRegdate = adminRegdate;
 	}
 
-	public Timestamp getAdminUpddate() {
+	public String getAdminUpddate() {
 		return adminUpddate;
 	}
 
-	public void setAdminUpddate(Timestamp adminUpddate) {
+	public void setAdminUpddate(String adminUpddate) {
 		this.adminUpddate = adminUpddate;
 	}
 
@@ -236,6 +233,15 @@ public class AdminEntity implements Serializable {
 	public void setAdminGrant(String adminGrant) {
 		this.adminGrant = adminGrant;
 	}
+	
+	public String getAdminAccessdate() {
+		return adminAccessdate;
+	}
+
+	public void setAdminAccessdate(String adminAccessdate) {
+		this.adminAccessdate = adminAccessdate;
+	}
+
 
 	@Override
 	public String toString() {
@@ -244,6 +250,7 @@ public class AdminEntity implements Serializable {
 				+ adminNm + ", adminTel=" + adminTel + ", adminRrno=" + adminRrno + ", adminGender=" + adminGender
 				+ ", adminImg=" + adminImg + ", adminUseyn=" + adminUseyn + ", adminDelyn=" + adminDelyn
 				+ ", adminRegdate=" + adminRegdate + ", adminUpddate=" + adminUpddate + ", adminGrant=" + adminGrant
+				+ ", adminAccessdate=" + adminAccessdate
 				+ "]";
 	}
 

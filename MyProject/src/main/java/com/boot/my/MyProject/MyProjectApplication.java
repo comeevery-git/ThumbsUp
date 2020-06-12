@@ -2,8 +2,6 @@ package com.boot.my.MyProject;
 
 import java.nio.charset.Charset;
 
-import javax.servlet.Filter;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,12 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan
 @SpringBootApplication
+@ComponentScan
 public class MyProjectApplication {
 
 	public static void main(String[] args) {

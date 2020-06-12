@@ -26,8 +26,6 @@ public class TestController {
     @GetMapping("/index")
     public String index(
     		Model model) {
-    	
-    	
     	boardRepository.deleteAll();
     	boardService.save(new BoardEntity("Ramesh", "Fadatare", "ramesh@gmail.com"));
     	boardService.save(new BoardEntity("Tom", "Cruise", "tom@gmail.com"));
