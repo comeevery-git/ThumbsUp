@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tu_board")
+@Table(name = "tb_board")
 public class BoardEntity implements Serializable {
 	
 	//기본 생성자 필수

@@ -32,6 +32,7 @@
 #doFont {
 	font-family: 'Nanum Gothic Coding', monospace;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 /* sweet alert 타이틀 폰트 */

@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.boot.my.MyProject.Admin.Admin;
@@ -25,6 +29,8 @@ import com.boot.my.MyProject.Admin.AdminService;
 @RequestMapping("/login")
 public class LoginController {
  
+	@Autowired
+	UserDetailsService userService;
 	@Autowired
 	PasswordEncoder passwordEncoder;
 	@Autowired
@@ -39,7 +45,45 @@ public class LoginController {
     public String main(Model model) {
     	return "login/admin_login";
     }
+    @RequestMapping(value="/userLogin")
+    public ModelAndView userLogin(
+    		ModelAndView mv,
+    		@RequestParam String id,
+    		HttpServletRequest request,
+            HttpServletResponse response,
+            Authentication auth
+            ) {
+    	UserDetails userLogin = userService.loadUserByUsername(id);
 
+    	//System.out.println(userLogin.getAuthorities());
+    	//System.out.println(userLogin.getAuthorities().toString());
+    	//System.out.println(userLogin.getUsername());
+    	//System.out.println(userLogin.getPassword());
+    	
+    	String user_auth = userLogin.getAuthorities().toString();
+    	System.out.println("로그인 성공, 권한 : " + user_auth);
+    	if(user_auth.equals("[ROLE_ADMIN]")) {
+    		System.out.println("admin");
+    		mv.setViewName("redirect:/admin/admin_index");
+    		return mv;
+    		
+    	} else if(user_auth.equals("[ROLE_MEMBER]")) {
+    		System.out.println("member");
+    		mv.setViewName("redirect:/index");
+    		return mv;
+    		
+    	} else {
+    		System.out.println("else....");
+    		mv.setViewName("redirect:/login/admin_login");
+    		return mv;
+    	}
+    	
+    }
+    
+    
+    
+    
+    
     
     /*
      * 직원가입

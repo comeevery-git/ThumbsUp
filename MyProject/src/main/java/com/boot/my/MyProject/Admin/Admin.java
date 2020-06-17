@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "tu_admin")
+@Table(name = "tb_admin")
 public class Admin {
  
 	public Admin() {}
